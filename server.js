@@ -8,7 +8,6 @@ var app = express();
 var client = redis.createClient();
 
 app.use(function (req, res, next) {
-  //  TODO: INCR counter in redis
   client.incr('counter', function (err, counter) {
     if (err) {
       return next(err);
